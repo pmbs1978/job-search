@@ -35,3 +35,17 @@
 // }
 
 // export const multiply = (number1, number2) => number1 * number2
+
+const numbers = [1, 2, 3, 4, 5]
+
+const squareNumbers = numbers.map(number => number * number)
+
+console.log(squareNumbers)
+
+const names = ['PEDRO', 'DUARTE', 'CAROLINA', 'MATILDE']
+
+const lowNames = names.map((name) => {
+    return name.toLowerCase()
+})
+
+console.log(lowNames)
