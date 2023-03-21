@@ -8,34 +8,47 @@
           {{ company }}
         </a>
         <nav class="ml-12 h-full">
-          <ul class="flex h-full list-nome">
-            <li class="h-full ml-9 first:ml-0" v-for="menuItem in menuItems" :key="menuItem">
-              <a href="" class="flex h-full items-center py-2.5">
+          <ul class="list-nome flex h-full">
+            <li
+              class="ml-9 h-full first:ml-0"
+              v-for="menuItem in menuItems"
+              :key="menuItem">
+              <a
+                href=""
+                class="flex h-full items-center py-2.5">
                 {{ menuItem }}
               </a>
             </li>
           </ul>
         </nav>
+        <div class="ml-auto flex h-full items-center">
+          <profile-image
+            v-if="isLoggedIn"
+            @click="isLoggedIn = !isLoggedIn" />
+          <action-button
+            v-else
+            @click="isLoggedIn = !isLoggedIn" />
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ActionButton from '@/components/ActionButton.vue';
+import ProfileImage from '@/components/ProfileImage.vue';
 export default {
   name: 'MainNav',
+  components: {
+    ActionButton,
+    ProfileImage
+  },
   data() {
     return {
       company: 'PMBS careers',
-      menuItems: [
-        'Teams',
-        'Locations',
-        'Live at PMBS Corp',
-        'How we hired',
-        'Students',
-          'Jobs'
-      ]
-      }
+      menuItems: ['Teams', 'Locations', 'Live at PMBS Corp', 'How we hired', 'Students', 'Jobs'],
+      isLoggedIn: false
+    };
   }
 };
 </script>
