@@ -27,7 +27,7 @@
             @click="isLoggedIn = !isLoggedIn" />
           <action-button
             v-else
-            :is-primary="true"
+            type="primary"
             label="Sign in"
             @click="isLoggedIn = !isLoggedIn" />
         </div>
